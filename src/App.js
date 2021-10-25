@@ -1,26 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
 
-class App extends React.Component{
-  state= {
-    count:0
-  };//바꿀 데이터는 state 안에
-
-  add = () =>{
-    console.log("add");
+class App extends React.Component {
+  state = {
+    count: 0
   };
-
-  minus = () =>{
-    console.log("minus");
+  add = () => {
+    this.setState(current => ({ count: current.count + 1 }));
   };
-  render(){
+  minus = () => {
+    this.setState(current => ({ count: current.count - 1 }));
+  };
+  componentDidMount() {
+    console.log("Component rendered");
+  }
+  componentDidUpdate() {
+    console.log("I just updated");
+  }
+  componentWillUnmount() {
+    console.log("Goodbye, cruel world");
+  }
+  render() {
+    console.log("I'm rendering");
     return (
-    <div>
-      <h2>The number is {this.state.count}</h2>
-    <button onClick = {this.add}>Add</button>
-    <button onClick = {this.minus}>Minus</button>
-    </div>);
-  }//class component는 확장 필수
+      <div>
+        <h1>The number is: {this.state.count}</h1>
+        <button onClick={this.add}>Add</button>
+        <button onClick={this.minus}>Minus</button>
+      </div>
+    );
+  }
 }
 
 export default App;
