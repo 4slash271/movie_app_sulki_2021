@@ -12,7 +12,7 @@ class App extends React.Component {
        data:{movies}
       }
      } = await axios.get("https://yts-proxy.nomadcoders1.now.sh/list_movies.json");
-     this.setState({movies:movies});
+     this.setState({movies});
   }
   componentDidMount(){
     this.getMovies();
