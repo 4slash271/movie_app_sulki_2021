@@ -1,18 +1,19 @@
 import React from "react";
-import { BrowserRouter,Route, Switch} from "react-router-dom";
-import Home from "./routes";
-import About from "./routes";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import Home from "./routes/Home";
+import About from "./routes/About";
+import Navigation from "./components/Navigation";
+import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
-    <Switch>
-     
-        <Route path="/" exact={true} component={Home}/>
-        <Route path="/about" component={About}/>
-    
-      </Switch>
-    </BrowserRouter>
+    <HashRouter>
+      <Navigation />
+      <Routes>
+      <Route path="/" exact={true} element={<Home />} />
+      <Route path="/about" element={<About />}/>
+      </Routes>
+    </HashRouter>
   );
 }
 
