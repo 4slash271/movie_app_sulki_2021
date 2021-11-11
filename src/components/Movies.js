@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Movies.css";
 
-function Movie({year, title, summary, poster, genres }) {
+function Movie({ year, title, summary, poster, genres }) {
   return (
     <Link to={{
-      pathname:"/movie-detail",
+      pathname:"/movie/:{id}",
       state:{
         year, 
         title, 
