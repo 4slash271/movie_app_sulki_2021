@@ -1,36 +1,37 @@
 
 import React from "react";
-function Detail(Props){
-    console.log(Props);return<span>Hello</span>;
+import {useLocation} from "react-router-dom";
 
-}
-// class Detail extends React.Component {
-//   componentDidMount() {
-//     const { location, history } = this.props;
-//     if (location.state === undefined) {
-//       history.push("/");
-//     }
-//   }
-//   render() {
-//     const { location } = this.props;
-//     if (location.state) {
-//       return <span>{location.state.title}</span>;
-//     } else {
-//       return null;
-//     }
-//   }
+// function Detail(Props){
+//     console.log(Props);return<span>Hello</span>;
+
 // }
-render() {
-    let location;
-    if(check if props has val) {
-        location = <MyComponent />
-    } else {
-        location = null
+class Detail extends React.Component {
+  componentDidMount() {
+    const { location, history } = this.props;
+    if (location.state === undefined) {
+      history.push("/");
     }
-    return (
-        <div>
-            {location}
-        </div>
-    )
+  }
+  render() {
+    const { location } = this.props;
+    if (location.state) {
+      return <span>{location}</span>;
+    } else {
+      return null;
+    }
+  }
 }
+function NoMatch() {
+  let location = useLocation();
+
+  return (
+    <div>
+      <h3>
+        No match for <code>{location.pathname}</code>
+      </h3>
+    </div>
+  );
+}
+
 export default Detail;
